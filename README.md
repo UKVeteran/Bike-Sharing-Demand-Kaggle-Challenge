@@ -10,3 +10,5 @@ The root-mean-square error (RMSE) is a measure used to assess how well a predict
 3 - Square Root: Finally, you take the square root of this average to get the RMSE. This step is important because it ensures that the RMSE is in the same units as the original data, making it easier to interpret.
 
 In simpler terms, RMSE tells you how far off, on average, our model's predictions are from the actual values. Smaller RMSE values indicate that the model's predictions are closer to the actual values, while larger RMSE values mean the predictions are further away. It is a way to quantify the goodness of fit of your model to the data, with lower values indicating a better fit.
+
+Stack'em Up - RMSE Score = 032
