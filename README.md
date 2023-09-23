@@ -11,6 +11,33 @@ The root-mean-square error (RMSE) is a measure used to assess how well a predict
 
 In simpler terms, RMSE tells you how far off, on average, our model's predictions are from the actual values. Smaller RMSE values indicate that the model's predictions are closer to the actual values, while larger RMSE values mean the predictions are further away. It is a way to quantify the goodness of fit of your model to the data, with lower values indicating a better fit.
 
+# Data Viz.
+
+```python
+
+from mpl_toolkits.mplot3d import Axes3D
+
+
+fig = plt.figure(figsize=(12,12))
+ax = fig.add_subplot(111, projection='3d')
+
+x = df['humidity']
+y = df['windspeed']
+z = df['atemp']
+c = df['count']
+
+img = ax.scatter(x, y, z, c=c, cmap=plt.hot())
+plt.xlabel('humidity', fontsize=22, labelpad=20)
+plt.ylabel('windspeed', fontsize=22, labelpad=20)
+#plt.zlabel('atemp', fontsize=22, labelpad=25)
+ax.view_init(45,60)
+fig.colorbar(img)
+plt.show()
+```
+
+![download](https://github.com/UKVeteran/Bike-Sharing-Demand-Kaggle-Challenge/assets/39216339/3782594c-0c94-48e1-acde-e0946007f24b)
+
+
 # Stack'em Up - RMSE Score = 0.32
 
 ```python
