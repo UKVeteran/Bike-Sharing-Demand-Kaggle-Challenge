@@ -1,5 +1,6 @@
 # Bike-Sharing-Demand-Kaggle-Challenge
 
+![NicLonsdale](https://github.com/UKVeteran/Bike-Sharing-Demand-Kaggle-Challenge/assets/39216339/de6bed44-ba5e-4462-bfaa-9e90280d64ee)
 
 # RMSE
 The root-mean-square error (RMSE) is a measure used to assess how well a predictive model, such as a machine learning algorithm, is performing. It is a way to quantify the average difference between the predicted values and the actual (observed) values. Here's a simple explanation:
