@@ -12,3 +12,37 @@ The root-mean-square error (RMSE) is a measure used to assess how well a predict
 In simpler terms, RMSE tells you how far off, on average, our model's predictions are from the actual values. Smaller RMSE values indicate that the model's predictions are closer to the actual values, while larger RMSE values mean the predictions are further away. It is a way to quantify the goodness of fit of your model to the data, with lower values indicating a better fit.
 
 # Stack'em Up - RMSE Score = 0.32
+
+```python
+
+from sklearn.ensemble import StackingRegressor
+from sklearn.metrics import mean_squared_log_error
+from sklearn.ensemble import RandomForestRegressor, AdaBoostRegressor
+from sklearn.svm import SVR
+from catboost import CatBoostRegressor
+import numpy as np
+
+# Define the base estimators
+base_estimators = [
+    ('random_forest', RandomForestRegressor(max_depth=9, min_samples_leaf=2, n_estimators=100, random_state=0)),
+    ('adaboost', AdaBoostRegressor(base_estimator=RandomForestRegressor(max_depth=9, min_samples_leaf=2),
+                                   n_estimators=100, learning_rate=1.0, random_state=0)),
+    ('svm', SVR(kernel='linear', C=1.0)),
+    ('catboost', CatBoostRegressor(iterations=100, depth=6, learning_rate=0.1))
+]
+
+# Create the StackingRegressor with the best parameters
+stacked_model = StackingRegressor(estimators=base_estimators, final_estimator=RandomForestRegressor(), cv=5)
+
+# Fit the StackingRegressor
+stacked_model.fit(X_train, y_train)
+
+# Predict with the StackingRegressor
+y_pred = stacked_model.predict(X_test)
+
+# Calculate the RMSLE
+msle = mean_squared_log_error(y_pred, y_test)
+rmsle = np.sqrt(msle)
+
+print('RMSLE for the data (StackedRegressor):', rmsle)
+```
